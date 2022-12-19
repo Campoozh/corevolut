@@ -1,0 +1,22 @@
+/* Buttons */
+
+button{
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.white-bg-button {
+    background-color: $white;
+    padding: 10px 1.5em;
+    border-radius: 15px;
+    font-size: 1.2em;
+}
+
+.blue-bg-button {
+    background-color: $main-color;
+    color: $white;
+    padding: 10px 1.5em;
+    border-radius: 15px;
+    font-size: 1.2em;
+}

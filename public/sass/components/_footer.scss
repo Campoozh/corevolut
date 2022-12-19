@@ -1,0 +1,41 @@
+footer{
+    margin-top: 20vh;
+    color: $white;
+    @include flexCenter;
+    flex-direction: column;
+}
+footer h1{
+    text-align: center;
+    font-size: 3em;
+    
+}
+.footer-auth-buttons{
+    margin: 1.5em auto;
+}
+.footer-auth-buttons .white-bg-button{
+    margin-right: 1em;
+}
+.footer-options{
+    margin: 2em 0;
+    @include flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
+footer p {
+    margin-bottom: 1.5em;
+}
+footer h3{
+    margin-bottom: .6em;
+}
+
+footer ul li {
+    margin-bottom: .5em;
+}
+
+footer ul li a {
+    color: #9e9e9e;     
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}

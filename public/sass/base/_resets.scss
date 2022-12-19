@@ -1,6 +1,34 @@
-/* Global resets  */
+/* Global */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto';
+}
+body {
+    background: $background-color; 
+    position: absolute;
+}
+
+footer{
+    position: relative;
+    bottom: 0;
+}
+
+.container{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.span-blue-color {
+    color: $main-color;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    color: $white;
+    text-decoration: none;
 }

@@ -1,3 +1,17 @@
 @extends('layouts.main')
 @section('title', 'Corevolut')
-<h1>Hello world corevolut</h1>
+
+@section('content')
+
+<div class="index-main-content">
+    <div class="index-main-image">
+        <img src="/assets/svg/index-main.svg" alt="index-main-image">
+    </div>
+    <div class="index-main-text">
+        <h1>THE FUTURE OF <br> LEARNING HOW TO <span class="span-blue-color">CODE</span></h1>
+        <h3>Learn <span class="span-blue-color">any tecnhology</span> and <br> get help from the <span class="span-blue-color">best</span></h3>
+        <button class="blue-bg-button">Jump in</button>
+    </div>   
+</div>
+
+@endsection

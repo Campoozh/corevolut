@@ -1,0 +1,20 @@
+/* Header */
+header{
+    width: 100%;
+    @include grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+header div {
+    @include flexCenter;
+
+}
+.header-logo{
+    grid-column: 2/3;
+}
+.header-auth-buttons .white-bg-button{
+    margin-right: 15px;
+}
+.header-logo img{
+    width: 75%;
+    text-align: center;
+}
