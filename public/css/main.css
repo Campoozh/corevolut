@@ -34,11 +34,14 @@ a {
   text-decoration: none;
 }
 
+input {
+  border: 0;
+}
+
 /* Buttons */
 button {
   background: none;
   border: 0;
-  cursor: pointer;
 }
 
 .white-bg-button {
@@ -46,6 +49,18 @@ button {
   padding: 10px 1.5em;
   border-radius: 15px;
   font-size: 1.2em;
+  color: #000;
+  cursor: pointer;
+}
+
+.white-bg-button:hover {
+  transition: 0.4s;
+  background-color: #26969B;
+  color: #fff;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
 }
 
 .blue-bg-button {
@@ -54,6 +69,17 @@ button {
   padding: 10px 1.5em;
   border-radius: 15px;
   font-size: 1.2em;
+  cursor: pointer;
+}
+
+.blue-bg-button:hover {
+  transition: 0.4s;
+  background-color: #fff;
+  color: #26969B;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
 }
 
 /* Header */
@@ -82,6 +108,11 @@ header div {
   text-align: center;
 }
 
+@media only screen and (max-width: 850px) {
+  header {
+    all: unset;
+  }
+}
 footer {
   margin-top: 20vh;
   color: #fff;
@@ -174,4 +205,84 @@ footer ul li a:hover {
 
 .index-main-text .blue-bg-button {
   font-size: 1.4em;
+}
+
+@media only screen and (max-width: 850px) {
+  .index-main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .index-main-text, .index-main-text h1 {
+    margin-top: 1em;
+    text-align: center;
+  }
+}
+.register-content {
+  display: flex;
+  height: 70vh;
+  margin-top: 4vh;
+}
+
+.register-content div {
+  width: 50%;
+}
+
+.register-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-form form {
+  height: 70%;
+  width: 50%;
+  background-color: #DCDCDC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.register-form form input {
+  width: 80%;
+  padding: 0.8em 1em;
+  margin-top: 2em;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.register-form form input::placeholder {
+  color: #494949;
+}
+
+.register-form .blue-bg-button {
+  margin-top: 2em;
+}
+
+.register-image {
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.register-image img {
+  width: 80%;
+  margin: 3em 0;
+}
+
+.register-content h2 a span:hover {
+  text-decoration: underline;
 }

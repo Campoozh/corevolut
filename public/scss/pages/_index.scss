@@ -38,3 +38,15 @@
 .index-main-text .blue-bg-button{
     font-size: 1.4em;
 }
+
+
+@media only screen and (max-width: 850px) {
+    .index-main-content {
+        @include flexCenter;
+        flex-direction: column;
+    }
+    .index-main-text, .index-main-text h1{
+        margin-top: 1em;
+        text-align: center; 
+    }
+}

@@ -1,0 +1,61 @@
+.register-content{
+    @include flex;
+    height: 70vh;
+    margin-top: 4vh;
+}
+
+.register-content div {
+    width: 50%;
+}
+
+.register-form {
+    @include flexCenter;
+}
+
+.register-form form{
+    height: 70%;
+    width: 50%;
+    background-color: #DCDCDC;
+    @include flexCenter;
+    flex-direction: column;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.register-form form input {
+    width: 80%;
+    padding: .8em 1em;
+    margin-top: 2em;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.register-form form input::placeholder{
+    color: #494949;
+}
+
+.register-form .blue-bg-button {
+    margin-top: 2em;
+}
+
+.register-image{
+    color: $white;
+    text-align: center;
+    @include flexCenter;
+    flex-direction: column;
+}
+
+.register-image img {
+    width: 80%;
+    margin: 3em 0;
+}
+
+.register-content h2 a span:hover {
+    text-decoration: underline;
+}

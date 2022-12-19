@@ -16,8 +16,8 @@
             <img src="/assets/img/corevolut_full_logo.png" alt="corevolut">
         </div>
         <div class="header-auth-buttons">
-            <button class="white-bg-button">Login</button>
-            <button class="blue-bg-button">Jump in</button>
+            <a class="white-bg-button">Login</a>
+            <a class="blue-bg-button" href="/register">Jump in</a>
         </div>
     </header>
     <main>
@@ -32,8 +32,8 @@
             <h1>Join us!</h1>
 
             <div class="footer-auth-buttons">
-                <button class="white-bg-button">Login</button>
-                <button class="blue-bg-button">Jump in</button>
+                <a class="white-bg-button">Login</a>
+                <a class="blue-bg-button" href="/register">Jump in</a>
             </div>
 
             <div class="footer-options">

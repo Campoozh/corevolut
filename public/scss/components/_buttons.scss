@@ -3,7 +3,6 @@
 button{
     background: none;
     border: 0;
-    cursor: pointer;
 }
 
 .white-bg-button {
@@ -11,6 +10,18 @@ button{
     padding: 10px 1.5em;
     border-radius: 15px;
     font-size: 1.2em;
+    color: #000;
+    cursor: pointer
+
+}
+.white-bg-button:hover{
+    transition: .4s;
+    background-color: $main-color;
+    color: $white;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
 }
 
 .blue-bg-button {
@@ -19,4 +30,15 @@ button{
     padding: 10px 1.5em;
     border-radius: 15px;
     font-size: 1.2em;
+    cursor: pointer
+}
+
+.blue-bg-button:hover{
+    transition: .4s;
+    background-color: $white;
+    color: $main-color;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
 }
