@@ -20,8 +20,14 @@
                 <a class="white-bg-button" href="/logout">Logout</a>
             @endauth
             @guest
-                <a class="white-bg-button">Login</a>
-                <a class="blue-bg-button" href="/register">Jump in</a>
+                @if(isset($loginPage))
+                    <a class="blue-bg-button" href="/register">Jump in</a>
+                @elseif(isset($registerPage))
+                    <a class="white-bg-button" href="/login">Login</a>
+                @else
+                    <a class="white-bg-button" href="/login">Login</a>
+                    <a class="blue-bg-button" href="/register">Jump in</a>
+                @endif
             @endguest
         </div>
     </header>
@@ -34,12 +40,22 @@
     <div class="container">
     <footer>
 
+        @guest
             <h1>Join us!</h1>
-
             <div class="footer-auth-buttons">
-                <a class="white-bg-button">Login</a>
-                <a class="blue-bg-button" href="/register">Jump in</a>
+                @if(isset($loginPage))
+                    <a class="blue-bg-button" href="/register">Jump in</a>
+                @elseif(isset($registerPage))
+                    <a class="white-bg-button" href="/login">Login</a>
+                @else
+                    <a class="white-bg-button" href="/login">Login</a>
+                    <a class="blue-bg-button" href="/register">Jump in</a>
+                @endif
             </div>
+        @endguest
+        @auth
+            Welcome back, {{$user->name}}.
+        @endauth
 
             <div class="footer-options">
                 <div class="footer-more-info">

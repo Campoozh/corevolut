@@ -6,5 +6,8 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/register', [AuthController::class, 'create']);
-Route::post('/register/user', [AuthController::class, 'store']);
+Route::post('/user/register', [AuthController::class, 'store']);
 Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/login', [AuthController::class, 'login']);
+Route::post('/user/login', [AuthController::class, 'authenticate']);
+

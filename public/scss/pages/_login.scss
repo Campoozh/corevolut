@@ -1,0 +1,59 @@
+.login-content{
+    @include flex;
+    margin-top: 10vh;
+}
+
+.login-content div {
+    width: 50%;
+}
+
+.login-image{
+    @include flexCenter;
+    flex-direction: column;
+    color: $white;
+}
+
+.login-image img {
+    width: 80%;
+    margin: 3em 0;
+}
+
+.login-form{
+    @include flexCenter;
+}
+
+.login-form form {
+    height: 70%;
+    width: 50%;
+    background-color: #DCDCDC;
+    @include flexCenter;
+    flex-direction: column;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.login-form form input {
+    width: 80%;
+    padding: .8em 1em;
+    margin: 1.5em 0;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.login-form button{
+    margin-top: 1em;
+}
+
+.login-form form input::placeholder{
+    color: #494949;
+}
+
+.login-image a span:hover {
+    text-decoration: underline;
+}

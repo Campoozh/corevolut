@@ -14,7 +14,9 @@ class AuthController extends Controller
 
     public function create(){
 
-        return view('users.create');
+        $registerPage = true;
+
+        return view('users.create', ["registerPage" => $registerPage]);
 
     }
 
@@ -59,14 +61,42 @@ class AuthController extends Controller
 
     }
 
-    public function logout(){
+    public function logout(Request $request){
 
-        $user = Auth::user();
+        Auth::logout();
 
-        auth()->logout($user);
+        $request->session()->invalidate();
+ 
+        $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
 
+    }
+
+    public function login(){
+        
+        $loginPage = true;
+
+        return view('users.login', ['loginPage' => $loginPage]);
+
+    }
+
+    public function authenticate(Request $request){
+
+        $userInfo = $request->validate([
+
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+
+        ]);
+
+        if (Auth::attempt($userInfo)){
+
+            $request->session()->regenerate();
+
+            return redirect('/');
+
+        }
     }
 
 }

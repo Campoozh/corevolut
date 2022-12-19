@@ -6,7 +6,7 @@
 <div class="container">
     <div class="register-content">
         <div class="register-form">
-            <form action="/register/user" method="POST">
+            <form action="/user/register" method="POST">
                 @csrf
                 <input type="text" name="firstName" placeholder="First name...">
                 <input type="text" name="lastName" placeholder="Last name...">
@@ -21,7 +21,7 @@
         </div>
         <div class="register-image">
             <h1>Jump into the community <br> and <span class="span-blue-color">learn everyday</span>!</h1>
-            <img src="/assets/svg/register_svg.svg" alt="">
+            <img src="/assets/svg/register_svg.svg" alt="register_svg">
             <h2>Already registered? <a href="/login"><span class="span-blue-color">Login in</span></a></h2>
         </div>
     </div>
