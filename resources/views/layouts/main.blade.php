@@ -16,8 +16,13 @@
             <img src="/assets/img/corevolut_full_logo.png" alt="corevolut">
         </div>
         <div class="header-auth-buttons">
-            <a class="white-bg-button">Login</a>
-            <a class="blue-bg-button" href="/register">Jump in</a>
+            @auth
+                <a class="white-bg-button" href="/logout">Logout</a>
+            @endauth
+            @guest
+                <a class="white-bg-button">Login</a>
+                <a class="blue-bg-button" href="/register">Jump in</a>
+            @endguest
         </div>
     </header>
     <main>

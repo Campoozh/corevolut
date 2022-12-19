@@ -36,3 +36,14 @@ a{
 input {
     border: 0;
 }
+
+.msg-red{
+    background-color: rgb(243, 147, 147);
+    color: $white;
+    padding: 10px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
