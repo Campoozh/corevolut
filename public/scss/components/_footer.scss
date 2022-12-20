@@ -39,3 +39,12 @@ footer ul li a {
 footer ul li a:hover {
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 850px) {
+    footer{
+        margin-top: 10vh;
+    }
+    .footer-more-info, .footer-search{
+        margin-right: 3em;
+    }
+}

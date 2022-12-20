@@ -59,3 +59,31 @@
 .register-content h2 a span:hover {
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 850px) {
+    .register-content{
+        @include flexCenter;
+        flex-direction: column;
+    }
+    .register-content div{
+        width: 100%;
+    }
+    .register-image{
+        text-align: center;
+        margin-top: 2em;
+    }
+    .register-image img{
+        display: none;
+    }
+
+    .register-image h1 {
+        margin-bottom: 1em;
+    }
+    .register-form{
+        height: 45vh;
+    }
+    .register-form form{
+        width: 60%;
+        height: 100%;
+    }
+}

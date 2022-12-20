@@ -7,6 +7,10 @@
     width: 50%;
 }
 
+.mobile-first-time-message{
+    display: none
+}
+
 .login-image{
     @include flexCenter;
     flex-direction: column;
@@ -56,4 +60,30 @@
 
 .login-image a span:hover {
     text-decoration: underline;
+}
+
+@media only screen and (max-width: 850px) {
+    .login-content{
+        @include flexCenter;
+        flex-direction: column;
+    }
+    .login-content div{
+        width: 100%;
+    }
+    .login-image{
+        text-align: center;
+    }
+    .login-image img{
+        display: none;
+    }
+
+    .login-image h1 {
+        margin-bottom: 1em;
+    }
+    .login-form{
+        height: 45vh;
+    }
+    .login-form form{
+        width: 80%;
+    }
 }

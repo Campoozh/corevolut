@@ -173,6 +173,14 @@ footer ul li a:hover {
   text-decoration: underline;
 }
 
+@media only screen and (max-width: 850px) {
+  footer {
+    margin-top: 10vh;
+  }
+  .footer-more-info, .footer-search {
+    margin-right: 3em;
+  }
+}
 .index-main-content {
   display: flex;
   margin-top: 12vh;
@@ -298,6 +306,34 @@ footer ul li a:hover {
   text-decoration: underline;
 }
 
+@media only screen and (max-width: 850px) {
+  .register-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .register-content div {
+    width: 100%;
+  }
+  .register-image {
+    text-align: center;
+    margin-top: 2em;
+  }
+  .register-image img {
+    display: none;
+  }
+  .register-image h1 {
+    margin-bottom: 1em;
+  }
+  .register-form {
+    height: 45vh;
+  }
+  .register-form form {
+    width: 60%;
+    height: 100%;
+  }
+}
 .login-content {
   display: flex;
   margin-top: 10vh;
@@ -305,6 +341,10 @@ footer ul li a:hover {
 
 .login-content div {
   width: 50%;
+}
+
+.mobile-first-time-message {
+  display: none;
 }
 
 .login-image {
@@ -362,4 +402,31 @@ footer ul li a:hover {
 
 .login-image a span:hover {
   text-decoration: underline;
+}
+
+@media only screen and (max-width: 850px) {
+  .login-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .login-content div {
+    width: 100%;
+  }
+  .login-image {
+    text-align: center;
+  }
+  .login-image img {
+    display: none;
+  }
+  .login-image h1 {
+    margin-bottom: 1em;
+  }
+  .login-form {
+    height: 45vh;
+  }
+  .login-form form {
+    width: 80%;
+  }
 }
