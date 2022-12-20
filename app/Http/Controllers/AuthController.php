@@ -14,6 +14,12 @@ class AuthController extends Controller
 
     public function create(){
 
+        if (Auth::user()){
+
+            return redirect('/');
+            
+        }
+
         $registerPage = true;
 
         return view('users.create', ["registerPage" => $registerPage]);
@@ -74,8 +80,15 @@ class AuthController extends Controller
     }
 
     public function login(){
-        
+
+        if (Auth::user()){
+
+            return redirect('/');
+
+        }
+
         $loginPage = true;
+
 
         return view('users.login', ['loginPage' => $loginPage]);
 

@@ -53,8 +53,9 @@
                 @endif
             </div>
         @endguest
+        
         @auth
-            Welcome back, {{$user->name}}.
+            <h2>Welcome back, <span class="span-blue-color">{{$user->first_name}}</span>.</h2>
         @endauth
 
             <div class="footer-options">
