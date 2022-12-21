@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -21,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level_id',
     ];
 
     /**
@@ -53,6 +55,14 @@ class User extends Authenticatable
     public function level(){
 
         return $this->hasOne('App\Models\Level', "id");
+
+    }
+
+    public function getNextId() {
+
+     $statement = DB::select("show table status like 'users'");
+
+     return $statement[0]->Auto_increment;
 
     }
 

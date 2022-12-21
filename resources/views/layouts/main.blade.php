@@ -9,6 +9,14 @@
     <link rel="icon" type="image/png" href="/assets/img/corevolut_icon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    
+    <!--
+    
+
+    <meta http-equiv="refresh" content="5">
+
+    
+    -->
 </head>
 <body>
     <header>
