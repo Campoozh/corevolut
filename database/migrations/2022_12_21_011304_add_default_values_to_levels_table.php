@@ -15,7 +15,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('levels', function (Blueprint $table) {
-            DB::statement("INSERT INTO `levels` VALUES (Null, 'Junior'), (Null, 'Plain'), (Null, 'Expert'), (Null, 'Master');");
+            DB::statement("INSERT INTO `levels` VALUES (Null, 'Newbie'), (Null, 'Junior'), (Null, 'Plain'), (Null, 'Expert'), (Null, 'Master');");
         });
     }
 

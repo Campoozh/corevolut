@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="/assets/img/corevolut_icon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
-    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!--
     
 
@@ -40,9 +40,7 @@
         </div>
     </header>
     <main>
-        <div class="container">
-            @yield('content')
-        </div>
+        @yield('content')
     </main>
 
     <div class="container">
@@ -63,7 +61,7 @@
         @endguest
         
         @auth
-            <h2>Welcome back, <span class="span-blue-color">{{$user->first_name}}</span>.</h2>
+            <h2>Welcome back, <span class="span-blue-color">{{Auth::user()->first_name}}</span>.</h2>
         @endauth
 
             <div class="footer-options">
@@ -71,7 +69,7 @@
                     <h3>More info</h3>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="#">My profile</a></li>
+                        <li><a {{!Auth::user() ? "href=/login" : "href=/user/".$user->url_id }}>My profile</a></li>
                         <li><a href="#">About us</a></li>
                     </ul>
                 </div>

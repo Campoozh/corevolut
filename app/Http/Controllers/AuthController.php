@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use PhpParser\Node\Stmt\Goto_;
 
 class AuthController extends Controller
 {
@@ -47,11 +44,11 @@ class AuthController extends Controller
 
             /* Remove accent */
             function stripAccents($str) {
+
                 return strtr(utf8_decode($str), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+            
             }
-
-                                
-
+               
             if($password == $confirmPassword){
 
                 $hashedPassword = Hash::make($password);
@@ -65,8 +62,8 @@ class AuthController extends Controller
             
             $url_id = stripAccents(strtolower($request->firstName)).".".stripAccents(strtolower($request->lastName)).".".$user->getNextId();
 
-            $user->url_id = $url_id;   
-
+            $user->url_id = $url_id;  
+            
             $user->save();
 
             auth()->login($user);
@@ -103,7 +100,6 @@ class AuthController extends Controller
         }
 
         $loginPage = true;
-
 
         return view('users.login', ['loginPage' => $loginPage]);
 

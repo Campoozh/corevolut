@@ -22,7 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'level_id',
+        'level_id'
     ];
 
     /**
@@ -66,5 +66,14 @@ class User extends Authenticatable
 
     }
 
+    public function getLevelAttribute(){
+
+        // $level = Level::where('id', $this->level_id)->get();
+        
+        $level = Level::findOrFail($this->level_id);
+
+        return $level['level'];
+
+    }
 
 }

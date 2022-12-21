@@ -334,6 +334,117 @@ footer ul li a:hover {
     height: 100%;
   }
 }
+.user-profile-background {
+  background-color: #DCDCDC;
+}
+
+.user-profile {
+  display: flex;
+  justify-content: space-between;
+  height: 80vh;
+}
+.user-profile h1, .user-profile h2, .user-profile h3 {
+  font-weight: 100;
+}
+.user-profile div {
+  margin-top: 8vh;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  background-color: #fff;
+}
+.user-profile .user-profile-card {
+  width: 29%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-profile .user-profile-card .profile-picture {
+  width: 40%;
+  margin: 3em 0 1.5em 0;
+}
+.user-profile .user-profile-card .user-name {
+  margin-bottom: 0.3em;
+}
+.user-profile .user-profile-card .user-location {
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: space-evenly;
+  width: 30%;
+  font-size: 1.3em;
+  color: #8B8B8B;
+}
+.user-profile .user-profile-card .user-activity {
+  display: flex;
+  justify-content: space-evenly;
+  width: 20%;
+  color: #312F2F;
+}
+.user-profile .user-profile-card .user-activity img {
+  width: 20%;
+}
+.user-profile .user-profile-card .user-follow-btn {
+  margin-top: 2em;
+  font-size: 1.5em;
+}
+.user-profile .user-profile-card .user-follow-btn:hover {
+  border: 1px solid #26969B;
+}
+.user-profile .user-profile-card .blue-bg-button {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.user-profile .user-recent-interactions {
+  width: 49%;
+  height: 60%;
+  align-self: center;
+}
+.user-profile .user-recent-interactions .main-title {
+  margin: 1em 0 0 1em;
+}
+.user-profile .user-level-card {
+  width: 19%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.user-profile .user-level-card .user-level span {
+  font-weight: bold;
+}
+.user-profile .user-level-card .user-level-newbie {
+  color: #8B8B8B;
+}
+.user-profile .user-level-card .user-level-junior {
+  color: #C9B133;
+}
+.user-profile .user-level-card .user-level-plain {
+  color: #EA745B;
+}
+.user-profile .user-level-card .user-level-expert {
+  color: #56B435;
+}
+.user-profile .user-level-card .user-level-master {
+  color: #CA5ADC;
+}
+.user-profile .user-level-card h2 {
+  margin-top: 1em;
+}
+.user-profile .user-level-card .user-rankings {
+  color: #8B8B8B;
+  font-size: 1em;
+}
+.user-profile .user-level-card .user-rankings:hover {
+  text-decoration: underline;
+}
+
 .login-content {
   display: flex;
   margin-top: 10vh;
