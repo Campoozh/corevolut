@@ -35,17 +35,24 @@ class ProfileController extends Controller
 
                 $imageExtension = $requestImage->extension();
 
-                $imageName = md5($requestImage->getClientOriginalName().strtotime('now')).".".$imageExtension;
-                
-                $request->image->move(public_path('assets\img\profile'), $imageName);
-                
-                $user->image_url = $imageName;
+                if(in_array($imageExtension, ['png', 'jpg'])){
 
-                $user->save();
-  
+                    $imageName = md5($requestImage->getClientOriginalName().strtotime('now')).".".$imageExtension;
+                    
+                    $request->image->move(public_path('assets\img\profile'), $imageName);
+                    
+                    $user->image_url = $imageName;
+    
+                    $user->save();
+                } else {
+
+                    return redirect('/user/'.$user->url_id);
+                    
+                }
+                
         }
 
-        return redirect('/user/'.$user->url_id);
+        return redirect('/user/'.$user->url_id)->with('msg', 'Profile updated with success!');
 
     }
 }
