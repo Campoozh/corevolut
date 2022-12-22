@@ -22,7 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'level_id'
+        'level_id',
     ];
 
     /**
@@ -43,6 +43,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $guarded = [];
 
     public function getFirstNameAttribute(){
 

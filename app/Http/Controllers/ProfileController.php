@@ -2,28 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Level;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
     public function show($url_id){
         
-        $user_id_num = explode('.', $url_id)[2];
+        $user_id = explode('.', $url_id)[2];
 
-        $user_by_id = User::findOrFail($user_id_num);
+        $user = User::findOrFail($user_id);
 
-        if($user_by_id['url_id'] == $url_id){
-
-            $user = User::findOrFail($user_id_num);
+        if($user->url_id === $url_id){
+            
+            return view('users.show', ['user' => $user]);
 
         } else {
 
-            return redirect('/');
+            return abort(404, 'User not found');
 
         }
-       
-        return view('users.show', ['user' => $user]);
+
+    }
+
+    public function update(Request $request, $id){
+
+        $user = User::findOrFail($request->id);
+
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+
+                $requestImage = $request->image;
+
+                $imageExtension = $requestImage->extension();
+
+                $imageName = md5($requestImage->getClientOriginalName().strtotime('now')).".".$imageExtension;
+                
+                $request->image->move(public_path('assets\img\profile'), $imageName);
+                
+                $user->image_url = $imageName;
+
+                $user->save();
+  
+        }
+
+        return redirect('/user/'.$user->url_id);
 
     }
 }

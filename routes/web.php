@@ -12,4 +12,4 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/login', [AuthController::class, 'login']);
 Route::post('/user/login', [AuthController::class, 'authenticate']);
 Route::get('/user/{url_id}', [ProfileController::class, 'show']);
-
+Route::put('/user/edit_image/{id}', [ProfileController::class, 'update']); 

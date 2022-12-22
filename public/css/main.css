@@ -334,10 +334,6 @@ footer ul li a:hover {
     height: 100%;
   }
 }
-.user-profile-background {
-  background-color: #DCDCDC;
-}
-
 .user-profile {
   display: flex;
   justify-content: space-between;
@@ -363,8 +359,22 @@ footer ul li a:hover {
   align-items: center;
 }
 .user-profile .user-profile-card .profile-picture {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.user-profile .user-profile-card .profile-picture-img {
   width: 40%;
   margin: 3em 0 1.5em 0;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.user-profile .user-profile-card .profile-picture #profile-picture-img:hover {
+  background-color: rgba(179, 177, 177, 0.6);
+  cursor: pointer;
 }
 .user-profile .user-profile-card .user-name {
   margin-bottom: 0.3em;
