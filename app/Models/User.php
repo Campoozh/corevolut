@@ -60,6 +60,18 @@ class User extends Authenticatable
 
     }
 
+    public function followers(){
+
+        return $this->belongsToMany(User::class, 'user_followers', 'follower_id', 'user_id');
+
+    }
+
+    public function followings(){
+
+        return $this->belongsToMany(User::class, 'user_followers', 'user_id', 'follower_id'); 
+        
+    }
+
     public function getNextId() {
 
      $statement = DB::select("show table status like 'users'");

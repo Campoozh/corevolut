@@ -12,9 +12,10 @@
                     @if (Auth::user() != $user|| Auth::guest())
                         <img src="/assets/img/profile/{{$user->image_url}}" alt="profile-picture" class="profile-picture-img">
                     @else
-                    <form action="/user/edit_image/{{$user->id}}" class="profile-picture" id="profile-picture" method="POST" enctype="multipart/form-data">
+                    <form method="POST" action="/user/edit_image/{{$user->id}}" class="profile-picture" id="profile-picture" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+                        
                         <input type="file" id="profile-picture-input" style="display:none;" name="image" accept="image/png, image/jpeg">
                         <img src="/assets/img/profile/{{$user->image_url}}" alt="profile-picture" class="profile-picture-img" id="profile-picture-img">
                     </form>
