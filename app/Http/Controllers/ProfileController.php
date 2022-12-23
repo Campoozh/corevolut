@@ -15,9 +15,29 @@ class ProfileController extends Controller
 
         $user = User::findOrFail($user_id);
 
+        $followers = $user->followers;
+
+        $userFollowers = UserFollower::where('user_id', $user_id)->get();
+
+        $following = false;
+
+        if (!Auth::guest()){
+
+            foreach($userFollowers as $follower){ 
+
+                if($follower['follower_id'] == Auth::user()->id){
+
+                    $following = true;
+
+                }
+
+            }
+
+        }
+        
         if($user->url_id === $url_id){
             
-            return view('users.show', ['user' => $user]);
+            return view('users.show', ['user' => $user, 'followers' => $followers, 'following' => $following]);
 
         } else {
 
@@ -64,6 +84,8 @@ class ProfileController extends Controller
 
         $followingUser = User::find($id);
 
+        if ($followingUser == Auth::user()) return redirect('/user/'.Auth::user()->url_id);
+
         $userFollower = UserFollower::create([
 
             'user_id' => $followingUser->id,
@@ -71,6 +93,8 @@ class ProfileController extends Controller
             'follower_id' => Auth::user()->id
 
         ]);
+
+        return redirect('/user/'.$followingUser->url_id);
         
     }
 }

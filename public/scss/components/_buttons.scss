@@ -3,16 +3,17 @@
 button{
     background: none;
     border: 0;
-}
-
-.white-bg-button {
-    background-color: $white;
     padding: 10px 1.5em;
     border-radius: 15px;
     font-size: 1.2em;
-    color: #000;
     cursor: pointer
 
+}
+
+.white-bg-button {
+    @extend button;
+    background-color: $white;
+    color: #000;
 }
 .white-bg-button:hover{
     transition: .4s;
@@ -25,12 +26,15 @@ button{
 }
 
 .blue-bg-button {
+    @extend button;
     background-color: $main-color;
     color: $white;
-    padding: 10px 1.5em;
-    border-radius: 15px;
-    font-size: 1.2em;
-    cursor: pointer
+}
+
+.green-bg-button{
+    @extend button;
+    background-color: #8DDD71;
+    color: $white;
 }
 
 .blue-bg-button:hover{

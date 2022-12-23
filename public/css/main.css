@@ -61,18 +61,18 @@ input {
 }
 
 /* Buttons */
-button {
+button, .green-bg-button, .blue-bg-button, .white-bg-button {
   background: none;
   border: 0;
+  padding: 10px 1.5em;
+  border-radius: 15px;
+  font-size: 1.2em;
+  cursor: pointer;
 }
 
 .white-bg-button {
   background-color: #fff;
-  padding: 10px 1.5em;
-  border-radius: 15px;
-  font-size: 1.2em;
   color: #000;
-  cursor: pointer;
 }
 
 .white-bg-button:hover {
@@ -88,10 +88,11 @@ button {
 .blue-bg-button {
   background-color: #26969B;
   color: #fff;
-  padding: 10px 1.5em;
-  border-radius: 15px;
-  font-size: 1.2em;
-  cursor: pointer;
+}
+
+.green-bg-button {
+  background-color: #8DDD71;
+  color: #fff;
 }
 
 .blue-bg-button:hover {
@@ -435,6 +436,25 @@ footer ul li a:hover {
 .user-profile .user-recent-interactions .main-title {
   margin: 1em 0 0 1em;
 }
+.user-profile .following-buttons {
+  margin-top: 0;
+  display: flex;
+}
+.user-profile .following-buttons .following-button {
+  display: flex;
+  align-items: center;
+}
+.user-profile .following-buttons .following-button ion-icon {
+  font-size: 1.2em;
+  margin-right: 0.2em;
+}
+.user-profile .following-buttons .message-button {
+  padding: 10px 0.6em;
+  margin-left: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .user-profile .user-level-card {
   width: 19%;
   height: 25%;
@@ -530,7 +550,7 @@ footer ul li a:hover {
   -o-border-radius: 15px;
 }
 
-.login-form button {
+.login-form button, .login-form .white-bg-button, .login-form .blue-bg-button, .login-form .green-bg-button {
   margin-top: 1em;
 }
 

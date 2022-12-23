@@ -9,7 +9,7 @@
             @endif
             <div class="user-profile">
                 <div class="user-profile-card">
-                    @if (Auth::user() != $user|| Auth::guest())
+                    @if (Auth::guest() || Auth::user()->id != $user->id)
                         <img src="/assets/img/profile/{{$user->image_url}}" alt="profile-picture" class="profile-picture-img">
                     @else
                     <form method="POST" action="/user/edit_image/{{$user->id}}" class="profile-picture" id="profile-picture" enctype="multipart/form-data">
@@ -21,9 +21,22 @@
                     </form>
                     @endif
                     <h1 class="user-name">{{$user->name}}</h1>
-                    <h3 class="user-location"><ion-icon name="location-outline"></ion-icon>Not found :(</h3>
+                    <h3 class="user-location"><ion-icon name="people-outline"></ion-icon>Followers: {{count($followers)}}</h3>
                     <h2 class="user-activity"><img src="/assets/svg/icons/ellipse-outline-green.svg" alt=""> Online</h2>
-                    <button class="blue-bg-button user-follow-btn">Follow</button>
+
+                    @if (Auth::guest() || Auth::user()->id != $user->id && !$following)                    
+                        <form action="/user/follow/{{$user->id}}" method="POST">
+                            @csrf
+                            <button class="blue-bg-button user-follow-btn" type="submit">Follow</button>
+                        </form>
+                    @elseif($following)
+                        <div class="following-buttons">
+                            <button class="green-bg-button user-follow-btn following-button" type="submit"><ion-icon name="checkmark-outline"></ion-icon><span>Following</span></button>
+                            <button  class="green-bg-button user-follow-btn message-button"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></button>
+                        </div>
+                    @else
+                        <button class="blue-bg-button user-follow-btn" type="submit">Edit profile</button>
+                    @endif
 
                 </div>
 

@@ -69,7 +69,7 @@
                     <h3>More info</h3>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a {{!Auth::user() ? "href=/login" : "href=/user/".$user->url_id }}>My profile</a></li>
+                        <li><a {{!Auth::user() ? "href=/login" : "href=/user/".Auth::user()->url_id }}>My profile</a></li>
                         <li><a href="#">About us</a></li>
                     </ul>
                 </div>
