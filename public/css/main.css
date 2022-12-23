@@ -455,6 +455,13 @@ footer ul li a:hover {
   justify-content: center;
   align-items: center;
 }
+.user-profile .edit-profile-button {
+  display: flex;
+  align-items: center;
+}
+.user-profile .edit-profile-button ion-icon {
+  margin-right: 0.2em;
+}
 .user-profile .user-level-card {
   width: 19%;
   height: 25%;
@@ -490,6 +497,19 @@ footer ul li a:hover {
 }
 .user-profile .user-level-card .user-rankings:hover {
   text-decoration: underline;
+}
+
+.profile-suggested-user {
+  padding: 2em;
+  background-color: #fff;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.profile-suggested-user h2 {
+  font-weight: 100;
 }
 
 .login-content {

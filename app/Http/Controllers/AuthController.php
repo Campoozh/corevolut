@@ -107,12 +107,16 @@ class AuthController extends Controller
 
     public function authenticate(Request $request){
 
-        $userInfo = $request->validate([
+        try {
+            $userInfo = $request->validate([
 
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-
-        ]);
+                'email' => ['required', 'email'],
+                'password' => ['required'],
+    
+            ]);
+        } catch (\Throwable $th) {
+            return redirect('/login')->with('msg', 'Incorrect credentials. Please, try again.');
+        }
 
         if (Auth::attempt($userInfo)){
 
@@ -120,6 +124,9 @@ class AuthController extends Controller
 
             return redirect('/user/'.Auth::user()->url_id);
 
+        } else {
+
+            return redirect('/login')->with('msg', 'Incorrect credentials. Please, try again.');
         }
     }
 

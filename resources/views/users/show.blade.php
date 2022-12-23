@@ -35,7 +35,7 @@
                             <button  class="green-bg-button user-follow-btn message-button"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></button>
                         </div>
                     @else
-                        <button class="blue-bg-button user-follow-btn" type="submit">Edit profile</button>
+                        <button class="blue-bg-button user-follow-btn edit-profile-button" type="submit"><ion-icon name="pencil-outline"></ion-icon> Edit profile</button>
                     @endif
 
                 </div>
@@ -48,7 +48,12 @@
                     <h2 ><a href="#" class="user-rankings">See user rankings</a></h2>
                 </div>
             </div>
-            <div>
+
+            <div class="profile-suggested-user">
+                <h2>Similar people:</h2>
+                <div>
+                    <p>Not similar people found :(</p>
+                </div>
             </div>
         </div>
     </div> 
