@@ -14,13 +14,16 @@
                     @else
                     <form method="POST" action="/user/edit_image/{{$user->id}}" class="profile-picture" id="profile-picture" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
-                        
+                        @method('PUT')      
                         <input type="file" id="profile-picture-input" style="display:none;" name="image" accept="image/png, image/jpeg">
                         <img src="/assets/img/profile/{{$user->image_url}}" alt="profile-picture" class="profile-picture-img" id="profile-picture-img">
                     </form>
                     @endif
-                    <h1 class="user-name">{{$user->name}}</h1>
+                    <form action="/user/update_profile/{{$user->id}}" method="POST" class="user-update-profile-form">
+                        @csrf
+                        @method('PUT')
+                        <h1 class="user-name">{{$user->name}}</h1>
+                    </form> 
                     <h3 class="user-location"><ion-icon name="people-outline"></ion-icon>Followers: {{count($followers)}}</h3>
                     <h2 class="user-activity"><img src="/assets/svg/icons/ellipse-outline-green.svg" alt=""> Online</h2>
 
@@ -31,11 +34,11 @@
                         </form>
                     @elseif($following)
                         <div class="following-buttons">
-                            <button class="green-bg-button user-follow-btn following-button" type="submit"><ion-icon name="checkmark-outline"></ion-icon><span>Following</span></button>
+                            <button class="green-bg-button user-follow-btn following-button"><ion-icon name="checkmark-outline"></ion-icon><span>Following</span></button>
                             <button  class="green-bg-button user-follow-btn message-button"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></button>
                         </div>
                     @else
-                        <button class="blue-bg-button user-follow-btn edit-profile-button" type="submit"><ion-icon name="pencil-outline"></ion-icon> Edit profile</button>
+                        <button class="blue-bg-button user-follow-btn edit-profile-button"><ion-icon name="pencil-outline"></ion-icon> Edit profile</button>
                     @endif
 
                 </div>
@@ -57,7 +60,7 @@
             </div>
         </div>
     </div> 
-    <script src="/js/userProfile.js"></script>
+    <script src="/js/user/user.js"></script>
 
 @endsection
 

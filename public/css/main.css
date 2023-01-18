@@ -421,6 +421,22 @@ footer ul li a:hover {
 .user-profile .user-profile-card .user-follow-btn:hover {
   border: 1px solid #26969B;
 }
+.user-profile .user-profile-card .user-input {
+  padding: 10px;
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 0.6em;
+  border: 1px solid rgb(179, 177, 177);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.user-profile .user-profile-card .user-update-profile-form {
+  display: flex;
+  flex-direction: column;
+}
 .user-profile .user-profile-card .blue-bg-button {
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -461,6 +477,16 @@ footer ul li a:hover {
 }
 .user-profile .edit-profile-button ion-icon {
   margin-right: 0.2em;
+}
+.user-profile .edit-profile-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.user-profile .edit-profile-button:disabled:hover {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #26969B;
+  color: #fff;
 }
 .user-profile .user-level-card {
   width: 19%;

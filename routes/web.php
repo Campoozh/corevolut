@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Auth;
 
 /* INDEX */
 Route::get('/', [IndexController::class, 'index']);
@@ -23,8 +22,11 @@ Route::get('/user/{url_id}', [ProfileController::class, 'show']);
 
 /* Profile interactions */
 Route::middleware('auth')->prefix('user')->group(function (){
-    Route::get('/edit_image/{id}', [ProfileController::class, 'update']); 
-    Route::put('/edit_image/{id}', [ProfileController::class, 'update']); 
+    Route::put('/edit_image/{id}', [ProfileController::class, 'updateImage']); 
+    Route::get('/edit_image/{id}', [ProfileController::class, 'updateImage']); 
+    Route::put('/update_profile/{id}', [ProfileController::class, 'updateProfile']); 
+    Route::get('/update_profile/{id}', [ProfileController::class, 'updateProfile']); 
     Route::post('/follow/{id}', [ProfileController::class, 'follow']);
+    Route::get('/follow/{id}', [ProfileController::class, 'follow']);
 });
 

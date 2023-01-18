@@ -47,19 +47,25 @@ class ProfileController extends Controller
 
     }
 
-    public function update(Request $request, $id){
-
-        $user = User::findOrFail($request->id);
+    public function updateImage(Request $request, $id){
 
         if (Auth::user()->id != $id) return redirect('/user/'.Auth::user()->url_id);
 
         if($request->hasFile('image') && $request->file('image')->isValid()){
+
+                $user = User::findOrFail($id);
 
                 $requestImage = $request->image;
 
                 $imageExtension = $requestImage->extension();
 
                 if(in_array($imageExtension, ['png', 'jpg'])){
+
+                    if($user->image_url != 'default.png'){
+
+                        unlink(public_path('assets\img\profile').'\\'.$user->image_url);
+
+                    }    
 
                     $imageName = md5($requestImage->getClientOriginalName().strtotime('now')).".".$imageExtension;
                     
@@ -68,6 +74,7 @@ class ProfileController extends Controller
                     $user->image_url = $imageName;
     
                     $user->save();
+
                 } else {
 
                     return redirect('/user/'.$user->url_id);
@@ -80,9 +87,30 @@ class ProfileController extends Controller
 
     }
 
+    public function updateProfile(Request $request, $id){
+
+        if (Auth::user()->id != $id) return redirect('/user/'.Auth::user()->url_id);
+
+        $user = User::findOrFail($id);
+
+        if($request->firstName){
+
+            $fullName = $request->firstName.' '.$request->lastName;
+    
+            $newName = $request->firstName ? $fullName : $user->id;
+
+            $user->name = $newName;
+    
+            $user->save();
+        }
+
+        return redirect()->back();
+
+    }
+
     public function follow($id){
 
-        $followingUser = User::find($id);
+        $followingUser = User::findOrFail($id);
 
         if ($followingUser == Auth::user()) return redirect('/user/'.Auth::user()->url_id);
 

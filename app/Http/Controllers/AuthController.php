@@ -108,14 +108,18 @@ class AuthController extends Controller
     public function authenticate(Request $request){
 
         try {
+            
             $userInfo = $request->validate([
 
                 'email' => ['required', 'email'],
                 'password' => ['required'],
     
             ]);
+
         } catch (\Throwable $th) {
+
             return redirect('/login')->with('msg', 'Incorrect credentials. Please, try again.');
+
         }
 
         if (Auth::attempt($userInfo)){
