@@ -38,6 +38,22 @@ if(button){
     lastNameInput.placeholder = 'Last name...'
     lastNameInput.classList.add('user-input', 'user-edit-name')
 
+    let cancel = document.createElement('p')
+    cancel.textContent = 'Cancel'
+    cancel.style.color = '#434E53';
+    cancel.style.marginTop = '0.6em';
+    cancel.onmouseover = () => {
+        cancel.style.textDecoration = 'underline';
+        cancel.style.cursor = 'pointer';
+    }
+    cancel.onmouseleave = () => {
+        cancel.style.textDecoration = 'none';
+    }
+    cancel.onclick = () => {
+        window.location.reload();
+    }
+    
+
     clicks = 0;
 
     button.onclick = () => {
@@ -53,6 +69,8 @@ if(button){
             firstNameInput.focus()
 
             button.textContent = 'Save profile'
+
+            button.after(cancel)
 
             clicks++;
 
