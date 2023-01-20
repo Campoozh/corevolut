@@ -24,7 +24,7 @@
                         @method('PUT')
                         <h1 class="user-name">{{$user->name}}</h1>
                     </form> 
-                    <h3 class="user-location"><ion-icon name="people-outline"></ion-icon>Followers: {{count($followers)}}</h3>
+                    <h3 class="user-followers"><ion-icon name="people-outline"></ion-icon>Followers: {{count($followers)}}</h3>
                     <h2 class="user-activity"><img src="/assets/svg/icons/ellipse-outline-green.svg" alt=""> Online</h2>
 
                     @if (Auth::guest() || Auth::user()->id != $user->id && !$following)                    

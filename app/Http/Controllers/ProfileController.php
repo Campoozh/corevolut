@@ -93,9 +93,9 @@ class ProfileController extends Controller
 
         $user = User::findOrFail($id);
 
-        if($request->firstName){
+        if($request->firstName && $request->lastName){
 
-            $fullName = $request->firstName.' '.$request->lastName;
+            $fullName = ucfirst(strtolower($request->firstName)).' '.ucfirst(strtolower($request->lastName));
     
             $newName = $request->firstName ? $fullName : $user->id;
 

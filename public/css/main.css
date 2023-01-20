@@ -397,9 +397,10 @@ footer ul li a:hover {
 .user-profile .user-profile-card .user-name {
   margin-bottom: 0.3em;
 }
-.user-profile .user-profile-card .user-location {
+.user-profile .user-profile-card .user-followers {
   margin-bottom: 2em;
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
   width: 30%;
   font-size: 1.3em;
@@ -407,6 +408,7 @@ footer ul li a:hover {
 }
 .user-profile .user-profile-card .user-activity {
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
   width: 20%;
   color: #312F2F;
@@ -432,6 +434,9 @@ footer ul li a:hover {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+}
+.user-profile .user-profile-card .user-input:focus {
+  outline: none;
 }
 .user-profile .user-profile-card .user-update-profile-form {
   display: flex;
