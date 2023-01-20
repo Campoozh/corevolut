@@ -126,9 +126,25 @@ header div {
   margin-right: 15px;
 }
 
-.header-logo img {
-  width: 75%;
+.header-logo a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo a img {
+  width: 85%;
   text-align: center;
+}
+
+.user-header-icons-btn {
+  color: #fff;
+  font-size: 2em;
+  margin-right: 1em;
+}
+
+.user-header-icons-btn:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 850px) {

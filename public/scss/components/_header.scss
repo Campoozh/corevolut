@@ -14,9 +14,20 @@ header div {
 .header-auth-buttons .white-bg-button{
     margin-right: 15px;
 }
-.header-logo img{
-    width: 75%;
+.header-logo a {
+    @include flexCenter;
+}
+.header-logo a img{
+    width: 85%;
     text-align: center;
+}
+.user-header-icons-btn{
+    color: #fff;
+    font-size: 2em;
+    margin-right: 1em;
+}
+.user-header-icons-btn:hover{
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 850px) {

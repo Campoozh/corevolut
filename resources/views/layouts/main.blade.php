@@ -21,10 +21,12 @@
 <body>
     <header>
         <div class="header-logo">
-            <img src="/assets/img/corevolut_full_logo.png" alt="corevolut">
+            <a href="/"><img src="/assets/img/corevolut_full_logo.png" alt="corevolut"></a>
         </div>
         <div class="header-auth-buttons">
             @auth
+                <a {{!Auth::user() ? "href=/login" : "href=/user/".Auth::user()->url_id }}><ion-icon name="person" class="user-header-icons-btn"></ion-icon></a>
+                <ion-icon name="notifications" class="user-header-icons-btn" id="user-notifications-button"></ion-icon>
                 <a class="white-bg-button" href="/logout">Logout</a>
             @endauth
             @guest
