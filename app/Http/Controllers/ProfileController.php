@@ -2,18 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\UserFollower;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Interfaces\UserRepositoryInterface;
 
 class ProfileController extends Controller
 {
+
+    private UserRepositoryInterface $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     public function show($url_id){
         
         $user_id = explode('.', $url_id)[2];
 
-        $user = User::findOrFail($user_id);
+        $user = $this->userRepository->getUserById($user_id);
 
         $followers = $user->followers;
 
@@ -53,7 +61,7 @@ class ProfileController extends Controller
 
         if($request->hasFile('image') && $request->file('image')->isValid()){
 
-                $user = User::findOrFail($id);
+                $user = $this->userRepository->getUserById($id);
 
                 $requestImage = $request->image;
 
@@ -91,7 +99,7 @@ class ProfileController extends Controller
 
         if (Auth::user()->id != $id) return redirect('/user/'.Auth::user()->url_id);
 
-        $user = User::findOrFail($id);
+        $user = $this->userRepository->getUserById($id);
 
         if($request->firstName && $request->lastName){
 
@@ -110,7 +118,7 @@ class ProfileController extends Controller
 
     public function follow($id){
 
-        $followingUser = User::findOrFail($id);
+        $followingUser = $this->userRepository->getUserById($id);
 
         if ($followingUser == Auth::user()) return redirect('/user/'.Auth::user()->url_id);
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,13 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
+
+    private UserRepositoryInterface $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
 
     public function create(){
 
@@ -32,48 +40,46 @@ class AuthController extends Controller
             $user = new User;
 
             $userName = ucfirst($request->firstName)." ".ucfirst($request->lastName);
-
-            $user->name = $userName;
-
-            $user->email = $request->email;
-
+          
             $password = $request->password;
 
             $confirmPassword = $request->confirmPassword;
 
 
-            /* Remove accent */
-            function stripAccents($str) {
-
-                return strtr(utf8_decode($str), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
-            
-            }
-               
             if($password == $confirmPassword){
 
                 $hashedPassword = Hash::make($password);
-
-                $user->password = $hashedPassword;
 
             } else {
 
                 return redirect('/register')->with('msg', "The passwords don't match.");
             }
+
+            /* Remove accent */
+            function stripAccents($str) {
+
+                return strtr(mb_convert_encoding($str, "UTF-8"), mb_convert_encoding('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ', "UTF-8"), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+            
+            }
             
             $url_id = stripAccents(strtolower($request->firstName)).".".stripAccents(strtolower($request->lastName)).".".$user->getNextId();
-
-            $user->url_id = $url_id;  
             
-            $user->save();
+            $user = $this->userRepository->createUser([
+                "name" => $userName,
+                "email" => $request->email,
+                "password" => $hashedPassword,
+                "url_id" => $url_id
+            ]);
 
-            auth()->login($user);
-            
+
             Session::push('user', [
 
                 'name' => $userName,
                 'email' => $request->email,
 
             ]);
+
+            auth()->login($user);
 
             return redirect('/user/'.$url_id);
 

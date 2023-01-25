@@ -10,13 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <!--
-    
-
-    <meta http-equiv="refresh" content="5">
-
-    
-    -->
 </head>
 <body>
     <header>
