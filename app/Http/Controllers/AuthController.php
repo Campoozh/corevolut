@@ -37,8 +37,6 @@ class AuthController extends Controller
 
     public function store(Request $request){
 
-            $user = new User;
-
             $userName = ucfirst($request->firstName)." ".ucfirst($request->lastName);
           
             $password = $request->password;
@@ -61,7 +59,9 @@ class AuthController extends Controller
                 return strtr(mb_convert_encoding($str, "UTF-8"), mb_convert_encoding('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ', "UTF-8"), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
             
             }
-            
+
+            $user = new User;
+
             $url_id = stripAccents(strtolower($request->firstName)).".".stripAccents(strtolower($request->lastName)).".".$user->getNextId();
             
             $user = $this->userRepository->createUser([
