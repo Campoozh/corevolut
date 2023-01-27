@@ -30,5 +30,11 @@ class UserRepository implements UserRepositoryInterface{
         return User::create($userInfo);
 
     }
+
+    public function getUserNotifications($userId){
+
+        return $this->getUserById($userId)->notifications();      
+
+    }
     
 }

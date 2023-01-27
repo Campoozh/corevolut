@@ -1,5 +1,6 @@
 /* Header */
 header{
+    position: relative;
     width: 100%;
     @include grid;
     grid-template-columns: repeat(3, 1fr);

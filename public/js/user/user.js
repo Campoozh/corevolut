@@ -21,7 +21,7 @@ if(successMSG){
 
 let button = document.querySelector('.edit-profile-button') 
 
-clicks = 0;
+let profileUpdateClicks = 0;
 
 let h1Name = document.querySelector('.user-name')
 
@@ -61,10 +61,10 @@ cancel.onclick = () => {
     followersDiv.style.display = 'flex';
     activityDiv.style.display = 'flex';
 
-    if(clicks>0){
+    if(profileUpdateClicks>0){
         button.innerHTML = '<ion-icon name="pencil-outline"></ion-icon> Edit profile';
         button.disabled = false;
-        clicks--
+        profileUpdateClicks--
 
     }
 
@@ -75,7 +75,7 @@ cancel.onclick = () => {
 button.onclick = () => {
     
 
-    if (clicks == 0){
+    if (profileUpdateClicks == 0){
 
         followersDiv.style.display = 'none';
         activityDiv.style.display = 'none';
@@ -122,19 +122,24 @@ button.onclick = () => {
         
         button.after(cancel)
         
-        clicks++;
+        profileUpdateClicks++;
         
     } else {
-
         document.querySelector('.user-update-profile-form').submit();
 
         firstNameInput.disabled = true
         lastNameInput.disabled = true
 
-        clicks--;
-
+        profileUpdateClicks--;
         }    
 
     }
+
+    
+ 
+
+
+
+    
  
     

@@ -8,5 +8,6 @@ interface UserRepositoryInterface{
     public function getUserById($userId);
     public function deleteUser($userId);
     public function createUser(array $userInfo);
+    public function getUserNotifications($userId);
 
 }

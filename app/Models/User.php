@@ -83,11 +83,15 @@ class User extends Authenticatable
 
     public function getLevelAttribute(){
 
-        // $level = Level::where('id', $this->level_id)->get();
-        
         $level = Level::findOrFail($this->level_id);
 
         return $level['level'];
+
+    }
+
+    public function notifications(){
+
+        return $this->hasMany('App\Models\Notification');
 
     }
 
