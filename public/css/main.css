@@ -211,6 +211,7 @@ footer ul li a:hover {
   }
 }
 #user-notifications {
+  z-index: 100;
   display: none;
   position: absolute;
   width: 50%;
@@ -226,8 +227,25 @@ footer ul li a:hover {
   padding: 1vw;
   margin: -2vw 0 0 -5vw;
 }
-#user-notifications h4 {
+#user-notifications h2 {
   text-align: center;
+}
+
+.user-notification {
+  margin-top: 1vh;
+  border: 1px solid #26969B;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 10px 5px;
+}
+.user-notification-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .index-main-content {

@@ -71,7 +71,8 @@ class AuthController extends Controller
                 "url_id" => $url_id
             ]);
 
-
+            $this->userRepository->sendNotification($user->id, Null,"Welcome to Corevolut!");
+        
             Session::push('user', [
 
                 'name' => $userName,

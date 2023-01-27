@@ -11,6 +11,12 @@ class Notification extends Model
 
     public $timestamps = false;
 
+    protected $fillable = [
+        'user_id',
+        'sender_id',
+        'body'
+    ];
+
     public function user(){
         
         return $this->belongsTo('App\Models\User');
