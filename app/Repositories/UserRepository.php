@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\UserRepositoryInterface;
 use App\Models\User;
+use App\Models\Notification;
 
 class UserRepository implements UserRepositoryInterface{
 
@@ -28,6 +29,22 @@ class UserRepository implements UserRepositoryInterface{
     public function createUser($userInfo){
 
         return User::create($userInfo);
+
+    }
+
+    public function getUserNotifications($userId){
+
+        return $this->getUserById($userId)->notifications();      
+
+    }
+
+    public function sendNotification($userId, $senderId, $body){
+
+        return Notification::create([
+            "user_id" => $userId,
+            "sender_id" => $senderId,
+            "body" => $body,
+        ]);
 
     }
     

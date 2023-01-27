@@ -33,6 +33,9 @@
                 @endif
             @endguest
         </div>
+        @auth
+            @include('layouts.user_notifications')
+        @endauth
     </header>
     <main>
         @yield('content')
@@ -90,5 +93,6 @@
             <p>Corevolut &copy; 2022</p>
         </footer>
     </div>     
+    <script src="/js/user/user-notifications.js"></script>
 </body>
 </html>
